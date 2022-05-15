@@ -14,21 +14,21 @@
         {todoText: 'item 3', completed: false}
       ];
 
-      console.log(todos);
+      displayTodos();
 
       function add(initialTodoText) {
         todos.push({todoText: initialTodoText, completed: false});
-        console.log(todos);
+        displayTodos();
       }
 
       function edit(position, newTodoText) {
         todos[position].todoText = newTodoText;
-        console.log(todos);
+        displayTodos();
       }
 
       function remove(position) {
         todos.splice(position, 1);
-        console.log(todos);
+        displayTodos();
       }
 
       function toggle(position) {
@@ -37,7 +37,35 @@
         } else {
           todos[position].completed = true
         }
-        console.log(todos);
+        displayTodos();
+      }
+
+      function toggleAll() {
+        var completedTodos = 0;
+
+        for (var i = 0; i < todos.length; i++) {
+          if (todos[i].completed === true) {
+            completedTodos++;
+          }
+        }
+        
+        if (completedTodos === todos.length) {
+          for (var i = 0; i < todos.length; i++) {
+            todos[i].completed = false;
+          }
+        } else {
+          for (var i = 0; i < todos.length; i++) {
+            todos[i].completed = true;
+          }
+        }
+
+        displayTodos();
+      }
+
+      function displayTodos() {
+        for (var i = 0; i < todos.length; i++) {
+          console.log(todos[i]);
+        }
       }
 
     </script>
