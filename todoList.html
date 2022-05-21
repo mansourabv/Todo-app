@@ -6,6 +6,8 @@
   </head>
 
   <body>
+    <button id="display-todos-button">Display todos</button>
+    <button id="toggle-all-button">Toggle all</button>
     <script>
 
       var todos = [
@@ -67,6 +69,13 @@
           console.log(todos[i]);
         }
       }
+
+      var displayTodosButton = document.getElementById('display-todos-button');
+      displayTodosButton.addEventListener('click', displayTodos);
+
+      var toggleAllButton = document.getElementById('toggle-all-button');
+      toggleAllButton.addEventListener('click', toggleAll);
+
 
     </script>
   </body>
